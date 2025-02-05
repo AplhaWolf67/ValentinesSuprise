@@ -1,0 +1,103 @@
+﻿
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Love Ya Like A Sister', cursive;
+            background-color: #ffcccb; /* Light pink background */
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #d32f2f; /* Dark red text */
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 150px; /* Adjust GIF size */
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+        }
+
+        button {
+            font-family: 'Love Ya Like A Sister', cursive;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+            transition: transform 0.2s ease;
+        }
+
+        #yesButton {
+            background-color: #4CAF50; /* Green for Yes */
+        }
+
+        #noButton {
+            background-color: #f44336; /* Red for No */
+        }
+
+        button:hover {
+            transform: scale(1.1); /* Slight zoom on hover */
+        }
+
+        /* Add a fun Valentine font */
+        @import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+    </style>
+</head>
+<body>
+    <img src="Yes.gif" alt="Cute Valentine GIF">
+    <h1>Will You Be My Valentine?</h1>
+    <div class="buttons">
+        <button id="yesButton">Yes</button>
+        <button id="noButton">No</button>
+    </div>
+
+    <script>
+// JavaScript for interactivity
+const yesButton = document.getElementById('yesButton');
+const noButton = document.getElementById('noButton');
+
+// Initial font size for the "Yes" button
+let yesButtonFontSize = 1.5; // in rem
+
+yesButton.addEventListener('click', () => {
+            // Redirect to the thank you page
+            window.location.href = "thank-you.html";
+});
+
+noButton.addEventListener('click', () => {
+            // Increase the size of the "Yes" button
+            yesButtonFontSize += 0.5; // Increase by 0.5rem each time
+            yesButton.style.fontSize = `${yesButtonFontSize}rem`;
+
+            // Move the "No" button randomly
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+});
+    </script>
+</body>
+</html>
